@@ -64,3 +64,4 @@ D:\programação\Curso_Balta\Blog\obj\Debug\net8.0\refint\Blog.dll
 D:\programação\Curso_Balta\Blog\obj\Debug\net8.0\Blog.pdb
 D:\programação\Curso_Balta\Blog\obj\Debug\net8.0\Blog.genruntimeconfig.cache
 D:\programação\Curso_Balta\Blog\obj\Debug\net8.0\ref\Blog.dll
+D:\programação\Curso_Balta\Blog\obj\Debug\net8.0\Blog.sourcelink.json

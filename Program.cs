@@ -1,10 +1,12 @@
 ﻿using System;
 using Blog.Screens.TagScreens;
+using Blog.Screens.CategoryScreens;
+using Blog.Screens.RoleScreens;
 using Microsoft.Data.SqlClient;
 
 namespace Blog
 {
-    class Program
+    public class Program
     {
         private const string CONNECTION_STRING = "Server=localhost,1433;Database=Blog;User Id=sa;Password=pass062*;TrustServerCertificate=True;";
 
@@ -19,12 +21,11 @@ namespace Blog
             Database.Connection.Close();
         }
 
-        private static void Load()
+        public static void Load()
         {
             Console.Clear();
-            Console.WriteLine("Gestão de tags");
             Console.WriteLine("------------");
-            Console.WriteLine("O que deseha fazer?");
+            Console.WriteLine("O que deseja fazer?");
             Console.WriteLine();
             Console.WriteLine("1 - Gestão de usuário");
             Console.WriteLine("2 - Gestão de perfil");
@@ -35,10 +36,18 @@ namespace Blog
             Console.WriteLine("7 - Relatórios");
             Console.WriteLine();
             Console.WriteLine();
-            var option = short.Parse(Console.ReadLine());
+
+            var input = Console.ReadLine();
+            var option = string.IsNullOrWhiteSpace(input) ? 0 : short.Parse(input);
 
             switch (option)
             {
+                case 2:
+                    MenuRoleScreen.Load();
+                      break;
+                case 3:
+                    MenuCategoryScreen.Load();
+                    break;
                 case 4:
                     MenuTagScreen.Load();
                     break;

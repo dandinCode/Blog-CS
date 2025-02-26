@@ -1,20 +1,20 @@
-using Blog.Screens.TagScreens;
+using Blog.Screens.PostScreens;
 
-namespace Blog.Screens.TagScreens
+namespace Blog.Screens.PostScreens
 {
-    public static class MenuTagScreen
+    public static class MenuPostScreen
     {
         public static void Load()
         {
             Console.Clear();
-            Console.WriteLine("Gestão de tags");
+            Console.WriteLine("Gest�o de posts");
             Console.WriteLine("------------");
             Console.WriteLine("O que deseja fazer?");
             Console.WriteLine();
-            Console.WriteLine("1 - Listar tags");
-            Console.WriteLine("2 - Cadastrar tag");
-            Console.WriteLine("3 - Atualizar tag");
-            Console.WriteLine("4 - Excluir tag");
+            Console.WriteLine("1 - Listar posts");
+            Console.WriteLine("2 - Cadastrar post");
+            Console.WriteLine("3 - Atualizar post");
+            Console.WriteLine("4 - Excluir post");
             Console.WriteLine("0 ou 'Enter' - Voltar ao menu principal");
             Console.WriteLine();
             
@@ -27,21 +27,18 @@ namespace Blog.Screens.TagScreens
                     Program.Load();
                     break;
                 case 1:
-                    ListTagScreen.Load();
+                    ListPostScreen.Load();
                     break;
                 case 2:
-                    CreateTagScreen.Load();
+                    CreatePostScreen.Load();
                     break;
                 case 3:
-                    UpdateTagScreen.Load();
+                    UpdatePostScreen.Load();
                     break;
                 case 4:
-                    DeleteTagScreen.Load();
+                    DeletePostScreen.Load();
                     break;
-                default: 
-                    Console.WriteLine("Por favor insira um valor válido!");
-                    Load();
-                    break;
+                default: Load(); break;
             }
         }
     }

@@ -1,47 +1,44 @@
-using Blog.Screens.TagScreens;
+using System;
+using Blog.Screens.CategoryScreens;
 
-namespace Blog.Screens.TagScreens
+namespace Blog.Screens.CategoryScreens
 {
-    public static class MenuTagScreen
+    public static class MenuCategoryScreen
     {
         public static void Load()
         {
             Console.Clear();
-            Console.WriteLine("Gestão de tags");
+            Console.WriteLine("Gest�o de categorias");
             Console.WriteLine("------------");
             Console.WriteLine("O que deseja fazer?");
             Console.WriteLine();
-            Console.WriteLine("1 - Listar tags");
-            Console.WriteLine("2 - Cadastrar tag");
-            Console.WriteLine("3 - Atualizar tag");
-            Console.WriteLine("4 - Excluir tag");
+            Console.WriteLine("1 - Listar categorias");
+            Console.WriteLine("2 - Cadastrar categoria");
+            Console.WriteLine("3 - Atualizar categoria");
+            Console.WriteLine("4 - Excluir categoria");
             Console.WriteLine("0 ou 'Enter' - Voltar ao menu principal");
             Console.WriteLine();
             
             var input = Console.ReadLine();
             var option = string.IsNullOrWhiteSpace(input) ? 0 : short.Parse(input);
-
             switch (option)
             {
                 case 0:
                     Program.Load();
                     break;
                 case 1:
-                    ListTagScreen.Load();
+                    ListCategoryScreen.Load();
                     break;
                 case 2:
-                    CreateTagScreen.Load();
+                    CreateCategoryScreen.Load();
                     break;
                 case 3:
-                    UpdateTagScreen.Load();
+                    UpdateCategoryScreen.Load();
                     break;
                 case 4:
-                    DeleteTagScreen.Load();
+                    DeleteCategoryScreen.Load();
                     break;
-                default: 
-                    Console.WriteLine("Por favor insira um valor válido!");
-                    Load();
-                    break;
+                default: Load(); break;
             }
         }
     }

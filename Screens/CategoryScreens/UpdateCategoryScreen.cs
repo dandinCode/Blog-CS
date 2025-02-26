@@ -2,14 +2,14 @@ using System;
 using Blog.Repositories;
 using Blog.Models;
 
-namespace Blog.Screens.TagScreens
+namespace Blog.Screens.CategoryScreens
 {
-    public static class UpdateTagScreen
+    public static class UpdateCategoryScreen
     {
         public static void Load()
         {
             Console.Clear();
-            Console.WriteLine("Atualizando uma tag");
+            Console.WriteLine("Atualizando uma categoria");
             Console.WriteLine("---------");
             Console.WriteLine("Id: ");
             var id = Console.ReadLine();
@@ -19,29 +19,30 @@ namespace Blog.Screens.TagScreens
 
             Console.WriteLine("Slug: ");
             var slug = Console.ReadLine();
-            
-            Update(new Tag
+
+            Update(new Category
             {
                 Id = int.Parse(id),
                 Name = name,
                 Slug = slug
             });
             Console.ReadKey();
-            MenuTagScreen.Load();
+            MenuCategoryScreen.Load();
         }
 
-         public static void Update(Tag tag)
+        public static void Update(Category category)
         {
             try
             {
-                var repository = new Repository<Tag>(Database.Connection);
-                repository.Update(tag);
-                Console.WriteLine("Tag atualizada com sucesso!");
-            } catch (Exception ex)
+                var repository = new Repository<Category>(Database.Connection);
+                repository.Update(category);
+                Console.WriteLine("Categoria atualizada com sucesso!");
+            }
+            catch (Exception ex)
             {
-                Console.WriteLine("NÃ£o foi possÃ­vel atualizar a tag");
+                Console.WriteLine("Não foi possível atualizar a categoria");
                 Console.WriteLine(ex.Message);
             }
-        } 
+        }
     }
 }

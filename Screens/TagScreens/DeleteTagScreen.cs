@@ -25,7 +25,7 @@ namespace Blog.Screens.TagScreens
             {
                 var repository = new Repository<Tag>(Database.Connection);
                 repository.Delete(id);
-                Console.WriteLine("Tag deletada com suceso!");
+                Console.WriteLine("Tag deletada com sucesso!");
             } catch (Exception ex)
             {
                 Console.WriteLine("Não foi possível deletar a tag");
