@@ -1,8 +1,11 @@
 using Blog.Models;
 using Microsoft.Data.SqlClient;
 using Dapper;
+using Dapper.Contrib.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using BCrypt.Net;
 
 namespace Blog.Repositories
 {
@@ -13,6 +16,33 @@ namespace Blog.Repositories
         public UserRepository(SqlConnection connection)
         : base(connection)
             => _connection = connection;
+
+        public void Create(User model)
+        {
+            model.PasswordHash = BCrypt.Net.BCrypt.HashPassword(model.PasswordHash);
+            _connection.Insert(model);
+        }
+
+        public void Update(User model)
+        {
+            User oldModel = _connection.Get<User>(model.Id);
+
+            if (oldModel != null)
+            {
+                if (BCrypt.Net.BCrypt.Verify(model.PasswordHash, oldModel.PasswordHash))
+                {
+                    model.PasswordHash = oldModel.PasswordHash;
+                    _connection.Update(model);
+                    }
+                else
+                    Console.WriteLine("Senha incorreta.");
+            }
+            else
+            {
+                Console.WriteLine("Usuário não encontrado.");
+            }
+        }
+
 
         public List<User> GetWithRoles()
         {

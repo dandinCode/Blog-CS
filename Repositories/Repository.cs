@@ -14,7 +14,7 @@ namespace Blog.Repositories
         public IEnumerable<T> Get()
             => _connection.GetAll<T>();
         
-         public T Get(int id)
+        public T Get(int id)
             => _connection.Get<T>(id);
 
         public void Create(T model)

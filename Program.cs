@@ -2,6 +2,7 @@
 using Blog.Screens.TagScreens;
 using Blog.Screens.CategoryScreens;
 using Blog.Screens.RoleScreens;
+using Blog.Screens.UserScreens;
 using Microsoft.Data.SqlClient;
 
 namespace Blog
@@ -42,6 +43,9 @@ namespace Blog
 
             switch (option)
             {
+                case 1:
+                    MenuUserScreen.Load();
+                    break;
                 case 2:
                     MenuRoleScreen.Load();
                       break;
