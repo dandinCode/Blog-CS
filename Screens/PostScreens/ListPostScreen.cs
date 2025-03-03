@@ -22,7 +22,7 @@ namespace Blog.Screens.PostScreens
             var posts = repository.Get();
             foreach (var item in posts)
             {
-                Console.WriteLine($"{item.Id} - {item.Name}");
+                Console.WriteLine($"{item.Id} - {item.Title}");
             }
         }
     }

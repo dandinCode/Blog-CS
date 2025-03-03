@@ -14,13 +14,37 @@ namespace Blog.Screens.PostScreens
             Console.WriteLine("Id: ");
             var id = Console.ReadLine();
 
-            Console.WriteLine("Nome: ");
-            var name = Console.ReadLine();
+            Console.WriteLine("Id da categoria: ");
+            var category = Console.ReadLine();
+            
+            Console.WriteLine("Id do autor: ");
+            var author = Console.ReadLine();
+            
+            Console.WriteLine("Titulo: ");
+            var title = Console.ReadLine();
+            
+            
+            Console.WriteLine("Sumario: ");
+            var summary = Console.ReadLine();
+            
+            Console.WriteLine("Texto: ");
+            var body = Console.ReadLine();
+            
+            Console.WriteLine("Slug: ");
+            var slug = Console.ReadLine();
+
 
             Update(new Post
             {
                 Id = int.Parse(id),
-                Name = name
+                CategoryId = int.Parse(category),
+                AuthorId = int.Parse(author),
+                Title = title,
+                Summary = summary,
+                Body = body,
+                Slug = slug,
+                LastUpdateDate = DateTime.Now
+            
             });
             Console.ReadKey();
             MenuPostScreen.Load();
@@ -32,11 +56,11 @@ namespace Blog.Screens.PostScreens
             {
                 var repository = new Repository<Post>(Database.Connection);
                 repository.Update(post);
-                Console.WriteLine("Post atualizada com sucesso!");
+                Console.WriteLine("Post atualizado com sucesso!");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Não foi possível atualizar a post");
+                Console.WriteLine("Nï¿½o foi possï¿½vel atualizar a post");
                 Console.WriteLine(ex.Message);
             }
         }

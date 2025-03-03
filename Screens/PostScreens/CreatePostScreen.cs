@@ -12,12 +12,34 @@ namespace Blog.Screens.PostScreens
             Console.Clear();
             Console.WriteLine("Novo post");
             Console.WriteLine("---------");
-            Console.WriteLine("Nome: ");
-            var name = Console.ReadLine();
+            
+            Console.WriteLine("Id da categoria: ");
+            var category = Console.ReadLine();
+            
+            Console.WriteLine("Id do autor: ");
+            var author = Console.ReadLine();
+            
+            Console.WriteLine("Titulo: ");
+            var title = Console.ReadLine();
+            
+            
+            Console.WriteLine("Sumario: ");
+            var summary = Console.ReadLine();
+            
+            Console.WriteLine("Texto: ");
+            var body = Console.ReadLine();
+            
+            Console.WriteLine("Slug: ");
+            var slug = Console.ReadLine();
 
             Create(new Post
             {
-                Name = name
+                CategoryId = int.Parse(category),
+                AuthorId = int.Parse(author),
+                Title = title,
+                Summary = summary,
+                Body = body,
+                Slug = slug
             });
             Console.ReadKey();
             MenuPostScreen.Load();
