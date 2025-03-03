@@ -4,6 +4,8 @@ using Blog.Screens.CategoryScreens;
 using Blog.Screens.RoleScreens;
 using Blog.Screens.UserScreens;
 using Blog.Screens.PostScreens;
+using Blog.Screens.UserRoleScreens;
+using Blog.Screens.ReportScreens;
 using Microsoft.Data.SqlClient;
 
 namespace Blog
@@ -58,6 +60,12 @@ namespace Blog
                     break;
                 case 5:
                     MenuPostScreen.Load();
+                    break;
+                case 6:
+                    LinkUserRoleScreen.Load();
+                    break;
+                case 7:
+                    ListReportScreen.Load();
                     break;
                 default: Load(); break;
             }
